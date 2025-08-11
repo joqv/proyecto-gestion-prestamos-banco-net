@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionPrestamosBancoService", "GestionPrestamosBancoService\GestionPrestamosBancoService.csproj", "{B94EF4E5-707A-4AF1-802F-E56DE56988A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionPrestamoBancoWeb", "GestionPrestamoBancoWeb\GestionPrestamoBancoWeb.csproj", "{6A86DD21-6B00-4EA0-8EE8-D8A3A951609E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B94EF4E5-707A-4AF1-802F-E56DE56988A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94EF4E5-707A-4AF1-802F-E56DE56988A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94EF4E5-707A-4AF1-802F-E56DE56988A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94EF4E5-707A-4AF1-802F-E56DE56988A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A86DD21-6B00-4EA0-8EE8-D8A3A951609E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A86DD21-6B00-4EA0-8EE8-D8A3A951609E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A86DD21-6B00-4EA0-8EE8-D8A3A951609E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A86DD21-6B00-4EA0-8EE8-D8A3A951609E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C0C20EB-9AB0-4C84-B402-97574D45593C}
+	EndGlobalSection
+EndGlobal
