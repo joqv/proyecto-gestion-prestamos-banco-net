@@ -63,6 +63,34 @@ namespace GestionPrestamosBancoService.Data.Respositorio
             return cuotaPrestamo;
         }
 
+        public List<CuotaPrestamo> ObtenerCuotasPorPrestamo(int id)
+        {
+            List<CuotaPrestamo> listado = new List<CuotaPrestamo>();
+
+            using (var conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                using (var cmd = new SqlCommand("ObtenerCuotasPorPrestamo", conexion))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idPrestamo", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader != null && reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                listado.Add(ConvertirReaderEnObjeto(reader));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return listado;
+        }
+
         public CuotaPrestamo PagarCuotaPrestamo(SolicitudPagoCuotaPrestamoDto solicitud)
         {
             CuotaPrestamo cuotaPagada = null;

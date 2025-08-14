@@ -32,5 +32,12 @@ namespace GestionPrestamosBancoService.Controllers
 
             return Ok(cuotaPagada);
         }
+
+        [HttpGet]
+        [Route("lista/{id}")]
+        public async Task<IActionResult> ListarPrestamosPorCuota(int id)
+        {
+            return Ok(await Task.Run(() => cuotasPrestamoDB.ObtenerCuotasPorPrestamo(id)));
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace GestionPrestamosBancoService.Controllers
         }
 
         [HttpPost]
+        [Route("registro")]
         public async Task<IActionResult> Registrar(Cliente cliente)
         {
             return Ok(await Task.Run(() => clienteDB.RegistrarCliente(cliente)));

@@ -8,5 +8,6 @@ namespace GestionPrestamosBancoService.Data.Contrato
         List<CuotaPrestamo> ListarCuotas();
         CuotaPrestamo PagarCuotaPrestamo(SolicitudPagoCuotaPrestamoDto solicitud);
         CuotaPrestamo ObtenerCuotaPorID(int id);
+        List<CuotaPrestamo> ObtenerCuotasPorPrestamo(int id);
     }
 }

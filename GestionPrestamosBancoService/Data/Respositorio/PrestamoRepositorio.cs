@@ -90,6 +90,34 @@ namespace GestionPrestamosBancoService.Data.Respositorio
             return prestamo;
         }
 
+        public List<Prestamo> ObtenerPrestamosPorCliente(int id)
+        {
+            List<Prestamo> listado = new List<Prestamo>();
+
+            using (var conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                using (var cmd = new SqlCommand("ObtenerPrestamosPorCliente", conexion))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idCliente", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader != null && reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                listado.Add(ConvertirReaderEnObjeto(reader));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return listado;
+        }
+
         // Metodos privados
         private Prestamo ConvertirReaderEnObjeto(SqlDataReader reader)
         {

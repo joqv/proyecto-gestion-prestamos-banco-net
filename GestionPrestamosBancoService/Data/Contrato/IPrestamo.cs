@@ -7,5 +7,6 @@ namespace GestionPrestamosBancoService.Data.Contrato
     {
         List<Prestamo> Listar();
         Prestamo AgregarPrestamo(SolicitudPrestamoDto solicitud);
+        List<Prestamo> ObtenerPrestamosPorCliente(int id);
     }
 }
