@@ -79,9 +79,19 @@
                 @Html.DisplayFor(modelItem => item.EstadoCuota)
             </td>
             <td>
-                @Html.ActionLink("Pagar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @if (item.EstadoCuota == "PENDIENTE")
+                {
+                    <form asp-controller="CuotasPrestamo" asp-action="PagarCuota" method="post">
+                        <input type="hidden" name="IdCuota" value="@item.IdCuota" />
+                        <input type="hidden" name="IdPrestamo" value="@item.IdPrestamo" />
+                        <input type="hidden" name="MontoAPagar" value="@item.SaldoPendiente" />
+                        <input type="hidden" name="IdCuentaOrigen" value="123456" />
+                        <button type="submit" class="btn btn-primary">Pagar</button>
+                    </form>
+                }
+                @* @Html.ActionLink("Pagar", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
             </td>
         </tr>
 }

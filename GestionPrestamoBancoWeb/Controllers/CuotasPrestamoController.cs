@@ -1,4 +1,5 @@
 ﻿using GestionPrestamoBancoWeb.Models;
+using GestionPrestamoBancoWeb.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -28,6 +29,30 @@ namespace GestionPrestamoBancoWeb.Controllers
             }
 
             return listado;
+        }
+
+        private CuotaPrestamo pagarCuotaPrestamo(SolicitudPagoCuotaPrestamoDto solicitud)
+        {
+            CuotaPrestamo cuotaPagada = null;
+
+            using (var clienteHTTP = new HttpClient())
+            {
+                clienteHTTP.BaseAddress = new Uri(_config["Services:URL"]);
+
+                StringContent contenido = new StringContent(
+                    JsonConvert.SerializeObject(solicitud),
+                    System.Text.Encoding.UTF8,
+                    "application/json"
+                    );
+
+                var mensaje = clienteHTTP.PostAsync("CuotasPrestamo/pagarCuota", contenido).Result;
+
+                var data = mensaje.Content.ReadAsStringAsync().Result;
+
+                cuotaPagada = JsonConvert.DeserializeObject<CuotaPrestamo>(data);
+            }
+
+            return cuotaPagada;
         }
 
 

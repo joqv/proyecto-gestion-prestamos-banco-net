@@ -25,7 +25,6 @@ namespace GestionPrestamosBancoService.Controllers
 
         [HttpPost]
         [Route("pagarCuota")]
-        //[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Prestamo))]
         public async Task<IActionResult> Registrar(SolicitudPagoCuotaPrestamoDto solicitud)
         {
             var cuotaPagada = await Task.Run(() => cuotasPrestamoDB.PagarCuotaPrestamo(solicitud));
