@@ -36,6 +36,58 @@ namespace GestionPrestamosBancoService.Data.Respositorio
             }
             return listado;
         }
+        public Cliente ObtenerPorID(int id)
+        {
+            Cliente cliente = null;
+
+            using (var conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                using (var cmd = new SqlCommand("ObtenerClientePorID", conexion))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader != null && reader.HasRows)
+                        {
+                            reader.Read();
+                            cliente = ConvertirReaderEnObjeto(reader);
+                        }
+                    }
+                }
+            }
+
+            return cliente;
+        }
+
+        public Cliente RegistrarCliente(Cliente cliente)
+        {
+            Cliente nuevoCliente = null;
+
+            int nuevoID = 0;
+
+            using (var conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                using (var cmd = new SqlCommand("RegistrarCliente", conexion))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nombre", cliente.Nombre);
+                    cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
+                    cmd.Parameters.AddWithValue("@numeroDocumento", cliente.NumeroDocumento);
+                    cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
+                    cmd.Parameters.AddWithValue("@email", cliente.Email);
+
+                    nuevoID = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            nuevoCliente = ObtenerPorID(nuevoID);
+
+            return nuevoCliente;
+        }
 
         // Metodos privados
         private Cliente ConvertirReaderEnObjeto(SqlDataReader reader)
