@@ -8,9 +8,9 @@
 
 <h1>Cuotas por Préstamo</h1>
 
-@* <p>
-    <a asp-action="Create">Create New</a>
-</p> *@
+<p>
+    <a asp-action="PorCliente" asp-controller="Prestamos" asp-route-id="@ViewBag.IdCliente" type="button" class="btn btn-outline-primary btn-sm">Regresar a los Préstamos del Cliente</a>
+</p>
 <table class="table">
     <thead>
         <tr>

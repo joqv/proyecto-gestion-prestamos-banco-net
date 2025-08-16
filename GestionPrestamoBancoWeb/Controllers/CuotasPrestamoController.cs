@@ -138,6 +138,8 @@ namespace GestionPrestamoBancoWeb.Controllers
             var prestamo = obtenerPrestamoPorID(id);
             var listado = listarCuotasPorPrestamo(id);
 
+            ViewBag.IdCliente = prestamo.IdCliente;
+
             if (prestamo != null)
             {
                 var cuentas = listarCuentasBancariasPorCliente(prestamo.IdCliente);
