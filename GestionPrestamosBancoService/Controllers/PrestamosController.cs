@@ -39,5 +39,12 @@ namespace GestionPrestamosBancoService.Controllers
         {
             return Ok(await Task.Run(() => prestamoDB.ObtenerPrestamosPorCliente(id)));
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> ObtenerPrestamoPorID(int id)
+        {
+            return Ok(await Task.Run(() => prestamoDB.ObtenerPrestamoPorId(id)));
+        }
     }
 }

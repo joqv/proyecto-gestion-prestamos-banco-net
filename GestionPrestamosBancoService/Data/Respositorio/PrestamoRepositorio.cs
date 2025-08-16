@@ -38,7 +38,7 @@ namespace GestionPrestamosBancoService.Data.Respositorio
                 }
             }
 
-            nuevoPrestamo = ObtenerPrestamoPorID(nuevoID);
+            nuevoPrestamo = ObtenerPrestamoPorId(nuevoID);
 
             return nuevoPrestamo;
         }
@@ -64,7 +64,7 @@ namespace GestionPrestamosBancoService.Data.Respositorio
             return listado;
         }
 
-        public Prestamo ObtenerPrestamoPorID(int id)
+        public Prestamo ObtenerPrestamoPorId(int id)
         {
             Prestamo prestamo = null;
 

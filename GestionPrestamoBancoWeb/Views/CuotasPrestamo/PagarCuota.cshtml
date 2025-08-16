@@ -1,0 +1,46 @@
+﻿@model GestionPrestamoBancoWeb.Models.Dto.SolicitudPagoCuotaPrestamoDto
+
+@{
+    ViewData["Title"] = "PagarCuota";
+}
+
+<h1>Pagar Cuota</h1>
+
+<h4>Solicitud de Pago de Cuota</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PagarCuota">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCuota" class="control-label"></label>
+                <input asp-for="IdCuota" class="form-control" value="@ViewBag.Cuota.IdCuota" readonly/>
+                <span asp-validation-for="IdCuota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCuentaOrigen" class="control-label"></label>
+                @* <input asp-for="IdCuentaOrigen" class="form-control" /> *@
+                <select asp-for="IdCuentaOrigen" class="form-select" asp-items="@ViewBag.listaCuentasCliente"></select>
+                <span asp-validation-for="IdCuentaOrigen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontoAPagar" class="control-label"></label>
+                <input asp-for="MontoAPagar" class="form-control" value="@ViewBag.Cuota.MontoTotalCuota" readonly/>
+                <span asp-validation-for="MontoAPagar" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group d-flex gap-3">
+                <input type="submit" value="Confirmar Pago" class="btn btn-info btn-sm" />
+                <div>
+                    <a asp-action="PorPrestamo" asp-controller="CuotasPrestamo" asp-route-id="@ViewBag.Cuota.IdPrestamo" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

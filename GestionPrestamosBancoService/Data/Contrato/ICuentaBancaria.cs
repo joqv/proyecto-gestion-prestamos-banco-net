@@ -8,5 +8,6 @@ namespace GestionPrestamosBancoService.Data.Contrato
         List<CuentaBancaria> Listar();
         CuentaBancaria CrearCuentaBancaria(SolicitudCrearCuentaBancariaDto solicitud);
         CuentaBancaria ObtenerCuentaBancariaPorID(int id);
+        List<CuentaBancaria> ObtenerCuentasBancariasPorCliente(int id);
     }
 }

@@ -4,11 +4,13 @@
     ViewData["Title"] = "PorCliente";
 }
 
-<h1>PorCliente</h1>
+<h1>Préstamos por Cliente</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="d-flex justify-content-between gap-3">
+    <a asp-action="Index" asp-controller="Clientes" type="button" class="btn btn-outline-primary btn-sm">Regresar a Lista de Clientes</a>
+    <a asp-action="CreatePrestamo" asp-route-id="@ViewBag.idCliente" type="button" class="btn btn-warning btn-sm">Generar Préstamo a este Cliente</a>
+</div>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -79,9 +81,9 @@
                 @Html.DisplayFor(modelItem => item.EstadoPrestamo)
             </td>
             <td>
-                @Html.ActionLink("Ver Cuotas", "PorPrestamo", "CuotasPrestamo", new { id=item.IdPrestamo }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Ver Cuotas", "PorPrestamo", "CuotasPrestamo", new { id=item.IdPrestamo }, new { @class = "boton-ver-cuotas" })
+                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
             </td>
         </tr>
 }

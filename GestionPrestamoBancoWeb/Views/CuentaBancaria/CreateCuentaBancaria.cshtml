@@ -1,0 +1,54 @@
+﻿@model GestionPrestamoBancoWeb.Models.Dto.SolicitudCrearCuentaBancaria
+
+@{
+    ViewData["Title"] = "CreateCuentaBancaria";
+}
+
+<h1>Nueva Cuenta Bancaria</h1>
+
+<h4>Solicitud de crear Cuenta Bancaria</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCuentaBancaria">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCliente" class="control-label"></label>
+                <input asp-for="IdCliente" class="form-control" value="@ViewBag.idCliente" readonly/>
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdTipoCuenta" class="control-label"></label>
+                @* <input asp-for="IdTipoCuenta" class="form-control" /> *@
+                <select asp-for="IdTipoCuenta" class="form-select" asp-items="@ViewBag.tiposCuenta"> </select>
+                <span asp-validation-for="IdTipoCuenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdMoneda" class="control-label"></label>
+                @* <input asp-for="IdMoneda" class="form-control" /> *@
+                <select asp-for="IdMoneda" class="form-select" asp-items="@ViewBag.monedas"> </select>
+                <span asp-validation-for="IdMoneda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaldoInicial" class="control-label"></label>
+                <input asp-for="SaldoInicial" class="form-control" />
+                <span asp-validation-for="SaldoInicial" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group d-flex gap-3">
+                <input type="submit" value="Crear Cuenta" class="btn btn-info btn-sm" />
+                <div>
+                    <a asp-action="CuentasPorCliente" asp-controller="CuentaBancaria" asp-route-id="@ViewBag.idCliente" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="CuentasPorCliente" asp-controller="CuentaBancaria" asp-route-id="@ViewBag.idCliente">Cancelar</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

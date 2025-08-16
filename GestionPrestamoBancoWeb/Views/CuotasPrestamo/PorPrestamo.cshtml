@@ -2,13 +2,15 @@
 
 @{
     ViewData["Title"] = "PorPrestamo";
+    var prestamo = ViewBag.Prestamo as GestionPrestamoBancoWeb.Models.Prestamo;
+    var cuentas = ViewBag.Cuentas as List<GestionPrestamoBancoWeb.Models.CuentaBancaria>;
 }
 
-<h1>PorPrestamo</h1>
+<h1>Cuotas por Préstamo</h1>
 
-<p>
+@* <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p> *@
 <table class="table">
     <thead>
         <tr>
@@ -81,16 +83,26 @@
             <td>
                 @if (item.EstadoCuota == "PENDIENTE")
                 {
-                    <form asp-controller="CuotasPrestamo" asp-action="PagarCuota" method="post">
+                        @Html.ActionLink("Pagar", "PagarCuota", "CuotasPrestamo", new { idPrestamo = item.IdPrestamo, idCuota = item.IdCuota }, new { @class = "btn btn-primary btn-sm" })
+                    @* <form asp-controller="CuotasPrestamo" asp-action="PagarCuota" method="post">
                         <input type="hidden" name="IdCuota" value="@item.IdCuota" />
                         <input type="hidden" name="IdPrestamo" value="@item.IdPrestamo" />
                         <input type="hidden" name="MontoAPagar" value="@item.SaldoPendiente" />
                         <input type="hidden" name="IdCuentaOrigen" value="123456" />
+                        <select name="IdCuentaOrigen" class="form-control mb-2">
+                                @if (cuentas != null)
+                                {
+                                    @foreach (var cuenta in cuentas)
+                                    {
+                                        <option value="@cuenta.IdCuenta">Cuenta #@cuenta.NumeroCuenta (@cuenta.Saldo.ToString("C") )</option>
+                                    }
+                                }
+
+                        </select>
                         <button type="submit" class="btn btn-primary">Pagar</button>
-                    </form>
+                    </form> *@
                 }
-                @* @Html.ActionLink("Pagar", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
             </td>
         </tr>

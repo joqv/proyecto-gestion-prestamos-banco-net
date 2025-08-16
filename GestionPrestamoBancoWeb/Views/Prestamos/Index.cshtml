@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Todos los Préstamos</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="d-flex gap-3">
+    <a asp-action="Index" asp-controller="Home" type="button" class="btn btn-outline-primary btn-sm">Regresar a Inicio</a>
+    <a asp-action="Index" asp-controller="Clientes" type="button" class="btn btn-outline-success btn-sm">Ir a Clientes</a>
+</div>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -78,11 +80,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EstadoPrestamo)
             </td>
-            <td>
+            @* <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+            </td> *@
         </tr>
 }
     </tbody>

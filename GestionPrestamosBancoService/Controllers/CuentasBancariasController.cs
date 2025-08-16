@@ -16,7 +16,6 @@ namespace GestionPrestamosBancoService.Controllers
             cuentaBancariaDB = cuentaBancariaRepo;
         }
 
-
         [HttpGet]
         [Route("lista")]
         public async Task<IActionResult> Listar()
@@ -31,6 +30,13 @@ namespace GestionPrestamosBancoService.Controllers
             var nuevaCuenta = await Task.Run(() => cuentaBancariaDB.CrearCuentaBancaria(solicitud));
 
             return Ok(nuevaCuenta);
+        }
+
+        [HttpGet]
+        [Route("lista/{id}")]
+        public async Task<IActionResult> ListarCuentasBancariasPorCliente(int id)
+        {
+            return Ok(await Task.Run(() => cuentaBancariaDB.ObtenerCuentasBancariasPorCliente(id)));
         }
     }
 }

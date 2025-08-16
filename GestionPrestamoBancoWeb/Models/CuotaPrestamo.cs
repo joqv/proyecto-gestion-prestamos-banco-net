@@ -1,10 +1,15 @@
-﻿namespace GestionPrestamoBancoWeb.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GestionPrestamoBancoWeb.Models
 {
     public class CuotaPrestamo
     {
         public int IdCuota { get; set; }
         public int IdPrestamo { get; set; }
         public int NumeroCuota { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaVencimiento { get; set; }
         public decimal MontoTotalCuota { get; set; }
         public decimal MontoCapital { get; set; }

@@ -104,5 +104,33 @@ namespace GestionPrestamosBancoService.Data.Respositorio
                 FechaApertura = reader.GetDateTime(reader.GetOrdinal("FechaApertura"))
             };
         }
+
+        public List<CuentaBancaria> ObtenerCuentasBancariasPorCliente(int id)
+        {
+            List<CuentaBancaria> listado = new List<CuentaBancaria>();
+
+            using (var conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                using (var cmd = new SqlCommand("ObtenerCuentasBancariasPorCliente", conexion))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idCliente", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader != null && reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                listado.Add(ConvertirReaderEnObjeto(reader));
+                            }
+                        }
+                    }
+                }
+            }
+
+            return listado;
+        }
     }
 }
