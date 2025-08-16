@@ -13,7 +13,11 @@ builder.Services.AddSwaggerGen();
 
 // Dependencias
 builder.Services.AddScoped<ICliente, ClienteRepositorio>();
-
+builder.Services.AddScoped<IPrestamo, PrestamoRepositorio>();
+builder.Services.AddScoped<ICuotaPrestamo, CuotaPrestamoRepositorio>();
+builder.Services.AddScoped<ICuentaBancaria, CuentaBancariaRepositorio>();
+builder.Services.AddScoped<IMoneda, MonedaRepositorio>();
+builder.Services.AddScoped<ITipoCuenta, TipoCuentaRepositorio>();
 
 var app = builder.Build();
 

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<GestionPrestamoBancoWeb.Models.Prestamo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Todos los Préstamos</h1>
+
+<div class="d-flex gap-3">
+    <a asp-action="Index" asp-controller="Home" type="button" class="btn btn-outline-primary btn-sm">Regresar a Inicio</a>
+    <a asp-action="Index" asp-controller="Clientes" type="button" class="btn btn-outline-success btn-sm">Ir a Clientes</a>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPrestamo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMoneda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoPrincipal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TasaInteres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlazoMeses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaFinEstimada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaldoPendiente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoPrestamo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPrestamo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMoneda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoPrincipal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TasaInteres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlazoMeses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaFinEstimada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaldoPendiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPrestamo)
+            </td>
+            @* <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td> *@
+        </tr>
+}
+    </tbody>
+</table>

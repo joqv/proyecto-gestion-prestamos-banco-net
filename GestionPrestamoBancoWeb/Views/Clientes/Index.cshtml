@@ -1,0 +1,72 @@
+﻿@model IEnumerable<GestionPrestamoBancoWeb.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Clientes</h1>
+<div class="d-flex gap-3">
+    <a asp-action="Create" class="btn btn-primary btn-sm">+ Nuevo Cliente</a>
+    @* <a asp-action="Index" asp-controller="Prestamos" class="btn btn-outline-success btn-sm">Ver Todos los Préstamos</a> *@
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-primary btn-sm">Regresar a Inicio</a>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>Información</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @* <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td> *@
+            <td>
+                    @Html.ActionLink("Ver Préstamos", "PorCliente", "Prestamos", new { id = item.IdCliente }, new { @class = "boton-ver-prestamos" })  - 
+                    @Html.ActionLink("Ver Cuentas", "CuentasPorCliente", "CuentaBancaria", new { id = item.IdCliente }, new { @class = "boton-ver-cuentas" })
+                @* @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -2,10 +2,8 @@
 
 namespace GestionPrestamosBancoService.Data.Contrato
 {
-    public interface ICliente
+    public interface ITipoCuenta
     {
-        List<Cliente> Listar();
-
-        Cliente RegistrarCliente(Cliente cliente);
+        List<TipoCuenta> ListarTipoCuenta();
     }
 }
