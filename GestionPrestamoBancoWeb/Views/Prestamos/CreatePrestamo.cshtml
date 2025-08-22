@@ -1,0 +1,56 @@
+﻿@model GestionPrestamoBancoWeb.Models.Dto.SolicitudCrearPrestamoDto
+
+@{
+    ViewData["Title"] = "CreatePrestamo";
+}
+
+<h1>Nuevo Préstamo</h1>
+
+<h4>Solicitud para crear Préstamo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreatePrestamo" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCliente" class="control-label"></label>
+                <input asp-for="IdCliente" class="form-control" value="@ViewBag.idCliente" readonly/>
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdMoneda" class="control-label"></label>
+                @* <input asp-for="IdMoneda" class="form-control" /> *@
+                <select asp-for="IdMoneda" class="form-select" asp-items="@ViewBag.monedas"> </select>
+                <span asp-validation-for="IdMoneda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MontoPrincipal" class="control-label"></label>
+                <input asp-for="MontoPrincipal" class="form-control" />
+                <span asp-validation-for="MontoPrincipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TasaInteres" class="control-label"></label>
+                <input asp-for="TasaInteres" class="form-control" />
+                <span asp-validation-for="TasaInteres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlazoMeses" class="control-label"></label>
+                <input asp-for="PlazoMeses" class="form-control" />
+                <span asp-validation-for="PlazoMeses" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group d-flex gap-3">
+                <input type="submit" value="Crear Prestamo" class="btn btn-warning btn-sm" />
+                <div>
+                    <a asp-action="PorCliente" asp-controller="Prestamos" asp-route-id="@ViewBag.idCliente" class="btn btn-outline-danger btn-sm">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

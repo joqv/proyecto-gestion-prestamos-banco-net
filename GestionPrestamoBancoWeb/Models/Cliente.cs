@@ -1,4 +1,4 @@
-﻿namespace GestionPrestamosBancoService.Models
+﻿namespace GestionPrestamoBancoWeb.Models
 {
     public class Cliente
     {

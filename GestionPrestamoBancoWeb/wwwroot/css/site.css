@@ -20,3 +20,151 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/*
+    Nuevo
+*/
+
+body {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.container-dashboard {
+    padding: 2rem;
+    text-align: center;
+}
+
+.container-dashboard h1 {
+    color: #343a40;
+    font-weight: 600;
+}
+
+.container-dashboard p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.card-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #dee2e6;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-prestamos {
+    border-left: 5px solid #007bff;
+}
+
+.card-clientes {
+    border-left: 5px solid #007bff;
+}
+
+.card-activos {
+    border-left: 5px solid #007bff;
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.card-info h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: #343a40;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.dashboard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btns {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.btns:active {
+    transform: translateY(1px);
+}
+
+.btns-ver-prestamos, .btns-ver-clientes, .btns-ver-activos {
+    background-color: #e9ecef;
+    color: #28a745;
+}
+
+.btns-nuevo-prestamo {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+
+.btns-ver-prestamos:hover, .btns-ver-clientes:hover, .btns-ver-activos:hover {
+    background-color: #d4edda;
+    color: #1e7e34;
+    border-color: #c3e6cb;
+}
+
+.btns-nuevo-prestamo:hover {
+    background-color: #cce5ff;
+    color: #0056b3;
+    border-color: #b8daff;
+}
+
+/* Adicionales */
+
+.boton-ver-prestamos {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.boton-ver-cuentas {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.boton-ver-cuotas {
+    color: #999920;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

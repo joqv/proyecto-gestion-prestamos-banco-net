@@ -1,0 +1,73 @@
+﻿@model IEnumerable<GestionPrestamoBancoWeb.Models.CuentaBancaria>
+
+@{
+    ViewData["Title"] = "CuentasPorCliente";
+}
+
+<h1>Cuentas de Cliente</h1>
+
+<div class="d-flex justify-content-between">
+    <a asp-action="Index" asp-controller="Clientes" type="button" class="btn btn-outline-primary btn-sm">Regresar a Clientes</a>
+    <a asp-action="CreateCuentaBancaria" asp-route-id="@ViewBag.idCliente" type="button" class="btn btn-info btn-sm">Abrir Cuenta Bancaria a este Cliente</a>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMoneda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saldo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaApertura)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMoneda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Saldo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaApertura)
+            </td>
+            @* <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td> *@
+        </tr>
+}
+    </tbody>
+</table>
