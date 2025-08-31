@@ -433,6 +433,34 @@ as
 go
 ---
 
+-- SP LoginUsuario
+CREATE PROCEDURE LoginUsuario  
+    @Username NVARCHAR(50),  
+    @Password NVARCHAR(100)  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+  
+    SELECT IdUsuario, Username, IdCliente  
+    FROM Usuarios  
+    WHERE Username = @Username AND PasswordHash = @Password;  
+END 
+GO
+--
+
+-- SP ObtenerUsuarioPorUsername
+CREATE PROCEDURE ObtenerUsuarioPorUsername  
+    @Username NVARCHAR(50)  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+  
+    SELECT IdUsuario, Username, PasswordHash, IdCliente  
+    FROM Usuarios  
+    WHERE Username = @Username;  
+END
+GO
+--
 
 -- prueba, no ejecutar
 -- idcliente, idMoneda, montoPrincipal, tasaInteres, plazoMeses
