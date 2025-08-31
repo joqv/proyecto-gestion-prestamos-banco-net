@@ -1,9 +1,11 @@
 ﻿using GestionPrestamosBancoService.Data.Contrato;
 using GestionPrestamosBancoService.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestionPrestamosBancoService.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class ClientesController : ControllerBase
